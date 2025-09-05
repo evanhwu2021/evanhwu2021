@@ -117,39 +117,6 @@
       <figcaption>Animated result (<code>dolly.gif</code>)</figcaption>
     </figure>
 
-    <h2>How to Make the GIF (offline tools)</h2>
-    <div class="card">
-      <p><strong>Option A — ImageMagick (simple):</strong></p>
-      <pre><code># macOS / Windows (recent ImageMagick uses 'magick')
-magick -delay 12 -loop 0 still1.jpg still2.jpg still3.jpg still4.jpg still5.jpg dolly.gif
-
-# Linux (often 'convert' is available)
-convert -delay 12 -loop 0 still1.jpg still2.jpg still3.jpg still4.jpg still5.jpg dolly.gif
-</code></pre>
-      <p class="small">
-        <em>Notes:</em> <code>-delay 12</code> ≈ 8.3 FPS (100/12). Lower = faster. <code>-loop 0</code> = loop forever.
-        You can also add <code>-resize 1080x</code> to downscale for smaller files.
-      </p>
-
-      <p><strong>Option B — FFmpeg (higher quality with palette):</strong></p>
-      <pre><code># 1) Make a palette optimized for your frames
-ffmpeg -y -framerate 8 -i still%01d.jpg -vf palettegen=stats_mode=full palette.png
-
-# 2) Create the GIF using the palette
-ffmpeg -framerate 8 -i still%01d.jpg -i palette.png -lavfi paletteuse=dither=bayer:bayer_scale=5 -loop 0 dolly.gif
-</code></pre>
-      <p class="small">
-        Rename your files to <code>still1.jpg</code> ... <code>still5.jpg</code> so the <code>still%01d.jpg</code> pattern matches (or adjust the pattern).
-      </p>
-    </div>
-
-    <h2>Submission Checklist</h2>
-    <ul>
-      <li>Five frames saved as <code>proj0/part3/still1.jpg</code> … <code>still5.jpg</code>.</li>
-      <li>GIF generated and saved as <code>proj0/part3/dolly.gif</code>.</li>
-      <li>Short reflection on how distance vs. zoom affected the background geometry.</li>
-    </ul>
-
     <a class="footer-link" href="../index.html">← Back to Project 0</a>
   </main>
 </body>
