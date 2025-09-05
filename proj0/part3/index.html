@@ -1,38 +1,156 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>Part 3: The Dolly Zoom?</title>
+  <title>Part 3: The Dolly Zoom — 5 Stills + GIF</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
-    body { font-family: Arial, sans-serif; margin: 24px; line-height: 1.6; }
-    .note { background: #f7f7f7; padding: 12px; border-radius: 8px; }
-    video, img { max-width: 100%; border-radius: 8px; }
-    code { background: #f2f2f2; padding: 2px 6px; border-radius: 4px; }
+    :root {
+      --fg: #111;
+      --muted: #555;
+      --bg: #ffffff;
+      --panel: #f7f7f8;
+      --radius: 12px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      line-height: 1.6;
+      color: var(--fg);
+      background: var(--bg);
+    }
+    header, main { padding: 24px; max-width: 1000px; margin: 0 auto; }
+    header h1 { margin: 0 0 8px; }
+    nav a { color: #1a73e8; text-decoration: none; }
+    nav a:hover { text-decoration: underline; }
+    .note, .card {
+      background: var(--panel);
+      border-radius: var(--radius);
+      padding: 16px;
+    }
+    h2 { margin-top: 28px; }
+    .strip {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+    }
+    @media (max-width: 900px) {
+      .strip { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 520px) {
+      .strip { grid-template-columns: 1fr; }
+    }
+    figure { margin: 0; }
+    img, video {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      display: block;
+    }
+    figcaption {
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    pre {
+      background: #1e1e1e; color: #eaeaea;
+      padding: 12px 14px; border-radius: 10px;
+      overflow: auto; font-size: 0.95rem;
+    }
+    code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+    .footer-link { margin-top: 24px; display: inline-block; }
+    .small { font-size: 0.92rem; color: var(--muted); }
   </style>
 </head>
 <body>
-  <h1>Part 3: The Dolly Zoom?</h1>
-  <p class="note">
-    Dolly zoom = move the camera forward/backward while inversely zooming to keep the subject the same size, causing the background to expand/contract.
-  </p>
+  <header>
+    <nav class="small">
+      <a href="../index.html">← Back to Project 0</a>
+    </nav>
+    <h1>Part 3: The Dolly Zoom — 5 Stills + GIF</h1>
+    <p class="small">
+      Capture five stills at different camera distances while inversely adjusting zoom, then combine them into an animated GIF.
+    </p>
+  </header>
 
-  <h2>Clip</h2>
-  <!-- Replace dolly.mp4 (or use a GIF) -->
-  <video controls src="dolly.mp4" preload="metadata" poster="poster.jpg"></video>
+  <main>
+    <section class="note">
+      <strong>Assignment:</strong>
+      <p>
+        Take five still photos that suggest a dolly-zoom: move the camera forward/backward while inversely zooming to keep the subject roughly the same size.
+        Then, combine these stills into an animated GIF file and include it below.
+      </p>
+    </section>
 
-  <h2>Steps</h2>
-  <ol>
-    <li>Pick a subject centered in frame.</li>
-    <li><strong>Dolly</strong> (walk or slide) toward the subject while <strong>zooming out</strong> to maintain subject size (or the reverse).</li>
-    <li>Keep horizon constant and camera level to emphasize background warping.</li>
-  </ol>
+    <h2>Stills (5 frames)</h2>
+    <p class="small">Replace the image files below with your own. Keep them in this folder so the paths work.</p>
+    <div class="strip">
+      <figure class="card">
+        <img src="still1.jpg" alt="Dolly zoom frame 1">
+        <figcaption>Frame 1</figcaption>
+      </figure>
+      <figure class="card">
+        <img src="still2.jpg" alt="Dolly zoom frame 2">
+        <figcaption>Frame 2</figcaption>
+      </figure>
+      <figure class="card">
+        <img src="still3.jpg" alt="Dolly zoom frame 3">
+        <figcaption>Frame 3</figcaption>
+      </figure>
+      <figure class="card">
+        <img src="still4.jpg" alt="Dolly zoom frame 4">
+        <figcaption>Frame 4</figcaption>
+      </figure>
+      <figure class="card">
+        <img src="still5.jpg" alt="Dolly zoom frame 5">
+        <figcaption>Frame 5</figcaption>
+      </figure>
+    </div>
 
-  <h2>Notes</h2>
-  <ul>
-    <li>If you only have a fixed lens, fake it by taking multiple distances and simulate zoom with cropping (less ideal, but shows the idea).</li>
-    <li>Shoot at higher shutter speed to avoid motion blur while moving.</li>
-  </ul>
+    <h2>Animated GIF</h2>
+    <p class="small">
+      After you generate the GIF, save it here as <code>dolly.gif</code> and it will appear below.
+    </p>
+    <figure class="card">
+      <img src="dolly.gif" alt="Animated dolly zoom GIF (upload dolly.gif to this folder)">
+      <figcaption>Animated result (<code>dolly.gif</code>)</figcaption>
+    </figure>
 
-  <p><a href="../index.html">← Back to Project 0</a></p>
+    <h2>How to Make the GIF (offline tools)</h2>
+    <div class="card">
+      <p><strong>Option A — ImageMagick (simple):</strong></p>
+      <pre><code># macOS / Windows (recent ImageMagick uses 'magick')
+magick -delay 12 -loop 0 still1.jpg still2.jpg still3.jpg still4.jpg still5.jpg dolly.gif
+
+# Linux (often 'convert' is available)
+convert -delay 12 -loop 0 still1.jpg still2.jpg still3.jpg still4.jpg still5.jpg dolly.gif
+</code></pre>
+      <p class="small">
+        <em>Notes:</em> <code>-delay 12</code> ≈ 8.3 FPS (100/12). Lower = faster. <code>-loop 0</code> = loop forever.
+        You can also add <code>-resize 1080x</code> to downscale for smaller files.
+      </p>
+
+      <p><strong>Option B — FFmpeg (higher quality with palette):</strong></p>
+      <pre><code># 1) Make a palette optimized for your frames
+ffmpeg -y -framerate 8 -i still%01d.jpg -vf palettegen=stats_mode=full palette.png
+
+# 2) Create the GIF using the palette
+ffmpeg -framerate 8 -i still%01d.jpg -i palette.png -lavfi paletteuse=dither=bayer:bayer_scale=5 -loop 0 dolly.gif
+</code></pre>
+      <p class="small">
+        Rename your files to <code>still1.jpg</code> ... <code>still5.jpg</code> so the <code>still%01d.jpg</code> pattern matches (or adjust the pattern).
+      </p>
+    </div>
+
+    <h2>Submission Checklist</h2>
+    <ul>
+      <li>Five frames saved as <code>proj0/part3/still1.jpg</code> … <code>still5.jpg</code>.</li>
+      <li>GIF generated and saved as <code>proj0/part3/dolly.gif</code>.</li>
+      <li>Short reflection on how distance vs. zoom affected the background geometry.</li>
+    </ul>
+
+    <a class="footer-link" href="../index.html">← Back to Project 0</a>
+  </main>
 </body>
 </html>
