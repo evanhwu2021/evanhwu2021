@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Part 2: Architectural Perspective Compression</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 24px; line-height: 1.6; }
+    .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    figure { margin: 0; }
+    figcaption { font-size: 0.95rem; color: #444; margin-top: 6px; }
+    img { width: 100%; height: auto; border-radius: 8px; }
+    @media (max-width: 700px) { .pair { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <h1>Part 2: Architectural Perspective Compression</h1>
+  <p>
+    Demonstrate how moving back and zooming in changes perceived depth and converging lines, compared to standing close with a wide lens.
+  </p>
+
+  <div class="pair">
+    <figure>
+      <img src="wide.jpg" alt="Wide-angle shot near the building">
+      <figcaption><strong>Wide &amp; Close:</strong> Standing near the façade (e.g., 24–28mm). Strong convergence and dramatic perspective.</figcaption>
+    </figure>
+    <figure>
+      <img src="tele.jpg" alt="Telephoto shot from farther away">
+      <figcaption><strong>Tele &amp; Far:</strong> Step back and zoom (e.g., 85–135mm). Lines appear more parallel; features look “compressed”.</figcaption>
+    </figure>
+  </div>
+
+  <h2>Method</h2>
+  <ol>
+    <li>Pick a building façade with repeating lines (columns, windows).</li>
+    <li>Frame roughly the same composition twice:
+      <ul>
+        <li><em>Shot A:</em> wide lens, stand close.</li>
+        <li><em>Shot B:</em> step way back, zoom in to match framing.</li>
+      </ul>
+    </li>
+    <li>Compare vanishing lines and relative size of elements.</li>
+  </ol>
+
+  <p><a href="../index.html">← Back to Project 0</a></p>
+</body>
+</html>
